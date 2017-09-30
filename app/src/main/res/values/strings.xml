@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Abdurahm-CountBook</string>
+    <string name="title_activity_home_activity">Home_activity_title</string>
+    <string name="title_activity_adding_activity">Adding_activity</string>
+</resources>

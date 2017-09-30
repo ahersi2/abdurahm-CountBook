@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/Users/Abdul/.android/build-cache/413edbe53a6f410d6c34582c88592dc2568ea05a/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="c4f45092eee6cdf1a5dbd597b2b6819be652ce2e">
+        <dex dex="/Users/Abdul/Desktop/Abdurahm-CountBook/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_d0d1557534425aa87d32bb55a552aaa8176bdedf/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Abdul/Desktop/Abdurahm-CountBook/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="0117bb7c1b63b5a7a3994c0f432e179a2db8b2bc">
+        <dex dex="/Users/Abdul/Desktop/Abdurahm-CountBook/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_ab6ca98a3bcdb9542d5dcf027134082add8e3e64/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Abdul/.android/build-cache/5d60b62834fdd4c14ebaa1313b949d7024107980/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="cddcd0fb93bc70e27325f2f715b2710332004ebb">
+        <dex dex="/Users/Abdul/Desktop/Abdurahm-CountBook/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_8fb011a2388073ff7e9327c20f21d3821e9ef00b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Abdul/.android/build-cache/0503d3b75e6701e186f5525a2fa4db4c959e3ffd/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="6a022bf00ccd0948a8180c505e8e458bbddd43a6">
+        <dex dex="/Users/Abdul/Desktop/Abdurahm-CountBook/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_ea27ee2bc5d2594959f89de6d30de9948c6f48fc/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Abdul/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.2/3edcfe49d2c6053a70a2a47e4e1c2f94998a49cf/gson-2.8.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="3edcfe49d2c6053a70a2a47e4e1c2f94998a49cf">
+        <dex dex="/Users/Abdul/Desktop/Abdurahm-CountBook/app/build/intermediates/transforms/dex/debug/folders/1000/10/gson-2.8.2_a9ca1605da891f01aa82fe359190c8ad296f5365/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Abdul/Desktop/Abdurahm-CountBook/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="/Users/Abdul/Desktop/Abdurahm-CountBook/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_b14c1300cf0c86e110e429e44bea7bb8f6f6f919/classes.dex" />
+    </item>
+
+</items>
