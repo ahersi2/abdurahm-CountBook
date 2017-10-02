@@ -54,9 +54,7 @@ public class Home_activity extends AppCompatActivity {
 
     public ListView allcounters;
 
-    //private ArrayList<Counter> Counters = new ArrayList<Counter>();
-
-
+    int remember;
 
 
 
@@ -66,85 +64,74 @@ public class Home_activity extends AppCompatActivity {
         setContentView(R.layout.home_layout);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        list_array = new ArrayList<String>();
-        adapter = new ArrayAdapter<String>(Home_activity.this, android.R.layout.simple_list_item_multiple_choice, list_array);
+        //list_array = new ArrayList<String>();
+        //adapter = new ArrayAdapter<String>(Home_activity.this, android.R.layout.simple_list_item_multiple_choice, list_array);
         //counter_list.setAdapter(adapter);
+        Log.d("strEditText", "hcheck this out part 2 " + remember);
+
 
         counter_list = (ListView) findViewById(R.id.list);
 
-        //This gets the most recent size of the listview
-        //loadFromFile();
-        //if(list_array !=null) {
-        //Log.d("strEditText", "here is the size of the array " + list_array.size());
-        //}
-        //*********************************************
-        //adapter = new ArrayAdapter<String>(Home_activity.this, android.R.layout.simple_list_item_multiple_choice, list_array);
-        //counter_list.setAdapter(adapter);
-        //*********************************************
 
-        //Bundle info = getIntent().getExtras();
-        //String data = info.getString("thename_passed");
-
-
-        //counter_list = (ListView) findViewById(R.id.list);
-
-        //adapter = new ArrayAdapter<String>(Home_activity.this, android.R.layout.simple_list_item_1, list_array);
-        //counter_list.setAdapter(adapter);
 
         String newdate  = DateFormat.getDateInstance().format(new Date());
 
 
-        //Log.d("strEditText", "here isjjj "+newdate);
 
         btn = (Button) findViewById(R.id.option);
         add = (Button) findViewById(R.id.add_button);
 
 
 
-        //list_array.add(data);
-
-        //adapter.notifyDataSetChanged();
 
 
+
+
+        // This function is entered when a specific item in the listview is clicked
 
         counter_list.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id){
                 Intent intent = new Intent(Home_activity.this, MainActivity.class);
-                int value = counter_list.getAdapter().getCount();
+                //This passes the index of the clicked item to mainactivity.java
                 intent.putExtra("keyname2",position);
                 Home_activity.this.startActivity(intent);
                 saveinFile();
             }
         });
 
+        //If the user wants to add a counter, here is the function it enters
+
         btn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                //Log.d("strEditText", "here is the specific item  " + list_array.get(1));
                 Intent i= new Intent(Home_activity.this, MainActivity.class);
+                int value = counter_list.getAdapter().getCount();
+                //This is passing the length of the current listview to the mainactivity.java,
+                //Purpose is to know where to index correctly
+                i.putExtra("keyname",value);
                 startActivityForResult(i,1);
 
+
                 saveinFile();
-
-
-
-                //Bundle info = getIntent().getExtras();
-                //String data = info.getString("thename_passed");
 
 
 
             }
         });
 
+        //If the user wants to clear all the counters, this is the function it enters
+        //
+
         add.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                Intent intent2 = new Intent(Home_activity.this, MainActivity.class);
-                int value = counter_list.getAdapter().getCount();
-                intent2.putExtra("keyname",list_array.size());
-                Home_activity.this.startActivity(intent2);
-                //startActivity(new Intent(Home_activity.this, add_activity.class));
+                list_array.clear();
+                adapter.clear();
+                adapter.notifyDataSetChanged();
                 saveinFile();
+
             }
         });
     }
@@ -155,14 +142,16 @@ public class Home_activity extends AppCompatActivity {
     protected void onStart(){
         super.onStart();
         loadFromFile();
+        if(list_array ==null){
+            list_array = new ArrayList<String>();
+        }
         adapter = new ArrayAdapter<String>(Home_activity.this, android.R.layout.simple_list_item_multiple_choice, list_array);
 
-        if(list_array !=null) {
-            counter_list.setAdapter(adapter);
-        }
-        //This clears the adapter if i want to do another run
-        //adapter.clear();
-        //adapter.notifyDataSetChanged();
+        //if(list_array !=null) {
+
+        counter_list.setAdapter(adapter);
+
+
         if(list_array !=null) {
             counter_list.getAdapter().getCount();
         }
@@ -176,8 +165,12 @@ public class Home_activity extends AppCompatActivity {
         else{
             Toast.makeText(getApplicationContext(), "Total number of items:0 ", Toast.LENGTH_LONG).show();
         }
+        Log.d("strEditText", "hcheck this out " + list_array.size());
+        remember = list_array.size();
+        Log.d("strEditText", "hcheck this outssdfdfs " + list_array.size());
     }
 
+    //Loading the files
     private void loadFromFile(){
         try{
             FileInputStream fis = openFileInput(FILENAME);
@@ -197,6 +190,8 @@ public class Home_activity extends AppCompatActivity {
         }
     }
 
+    //Function that saves the data in a file
+
     private void saveinFile(){
         try{
             FileOutputStream fos = openFileOutput(FILENAME,Context.MODE_PRIVATE);
@@ -214,34 +209,37 @@ public class Home_activity extends AppCompatActivity {
         }
     }
 
-
+// This is the function that gets called when we press save in the Main Activity portion
+    // Its purpose is to update the name in the listview
     @Override
     public void onActivityResult(int requestCode,int resultCode, Intent data){
         super.onActivityResult(requestCode,resultCode,data);
         String textt = "result is ";
 
 
+
         if(requestCode ==1){
             if(resultCode == RESULT_OK){
                 String strEditText = data.getStringExtra("thename_passed");
+
+
 
                 Log.d("strEditText", textt+strEditText);
 
 
 
+
+
                 list_array.add(strEditText);
-                //list_array.add(strEditText);
+                Log.d("strEditText", "here is the size of the array " + list_array.size());
+
+
 
                 adapter.notifyDataSetChanged();
-                //saveinFile();
+                saveinFile();
 
             }
         }
     }
-    //@Override
-    //protected void onListItem
-
-
-
 
 }
